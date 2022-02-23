@@ -1,0 +1,40 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+index:
+   path: /
+   controller: App\Controller\IndexController::index
+
+contact:
+   path: /contact
+   controller: App\Controller\ContactController::contact
+
+
+add_product:
+   path: /admin/add_product
+   controller: App\Controller\ProductController::add
+
+all_product:
+   path: /all_product
+   controller: App\Controller\ProductController::all   
+
+cart:
+   path: /cart
+   controller: App\Controller\CartController::cart
+
+add_cart:
+   path: /add_cart/{idProduct}
+   controller: App\Controller\CartController::addToCart
+
+remove_cart:
+   path: /remove_cart/{idProduct}
+   controller: App\Controller\CartController::removeToCart
+
+order:
+   path: /profile/order
+   controller: App\Controller\OrderController::display
+
+new_order:
+   path: /profile/new_order
+   controller: App\Controller\OrderController::addOrder

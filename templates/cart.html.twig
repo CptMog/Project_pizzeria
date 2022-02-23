@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h1>Order details</h1>
+    <div class="cart_container">
+        <div>
+            <table>
+                <tr>
+                    <th>order</th>
+                    <th> image</th>
+                    <th> name</th>
+                    <th> quantity</th>
+                    <th> price</th>
+                </tr>
+                {% for elem in elements %}
+                    <tr id="{{elem.id}}tr" >
+                        <td><input id-elem="{{elem.id}}" type="checkbox" class="checker" checked /></td>
+                        <td  class="tab_photo" ><img src="{{ asset('img/'~elem.photo) }}" alt=""></td>
+                        <td>{{ elem.name }}</td>
+                        <td>{{ elem.quantity }}</td>
+                        <td>{{ elem.price }} $</td>
+                    <tr>
+                {% else %}
+                    <tr><td colspan="5">No products to display for now</td><tr>
+                {% endfor %}
+                <tr>
+                    {# <td colspan="4"><strong>Total price</strong></td> #}
+
+                    {# <td><strong id="totalPrice">{{tot}}</strong> $</td> #}
+                </tr>
+            </table>
+        </div>
+        <div>
+            <strong>Order total price : {{tot}} $ </strong>
+            <a href="{{ path('new_order') }}"><button>Order</button></a>
+        </div>
+    </div>
+{% endblock %}

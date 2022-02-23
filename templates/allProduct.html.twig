@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<h1 class="center">Menus</h1>
+    <div class="flex_container"> 
+        
+        {% for product in products %}
+            <div class="prod">
+                <img src="{{ asset('img/'~product.photo) }}" alt="pizza week1">
+                <strong>{{ product.name }}</strong>
+                <span>{{ product.price }} $</span>
+                <button  id-product="{{ product.id }}" class="add">Add</button>
+            </div>
+        {% else %}
+            Aucune pizza pour l'instant
+        {% endfor %}
+    </div>
+{% endblock %}

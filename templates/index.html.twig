@@ -1,0 +1,78 @@
+{% extends "base.html.twig"%}
+
+{% block main%}
+ 
+
+            <div class="presentation">
+                <div class="bloc">
+                    <h1>The best pizza you've ever taste</h1>
+                    <h2>Homemade pizza made with heart <span>❤</span></h2>
+                    <div class="btn_container">
+                    <button>Order now</button> <button><span>See menu</span></button>
+                    </div>
+                    
+                </div>
+                <img src="{{ asset('img/pizza.jpg') }}" class="chef" alt="pizza">
+            </div>
+
+            <div class="bandrole">
+                <div>
+                    <h2>Top 10 of the week</h2>
+
+                    <div class="slider">
+                        {% for product in products %}
+                            <div class="item"><a href=""><img src="{{ asset('img/'~product.photo) }}" alt="pizza week1"></a></div>
+                        {% else %}
+                            Aucune pizza pour l'instant
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="promo">
+                <h2>Les promos chez 3WA Pizza</h2>
+                <div class="flex_container">
+                    <div>
+                        <h3>2 Medium + 1x1,75L @22$</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, consequatur.</p>
+                        <button>Order</button>
+                    </div>
+                    <div>
+                        <h3>1 pizza buy 2nd 50% off</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ipsa saepe delectus.</p>
+                        <button>Order</button>
+                    </div>
+                    <div>
+                        <h3>1 pizza signature, 1x1.25L only 18$</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, fugit?</p> 
+                        <button>Order</button>
+                    </div>
+                    <div>
+                        <h3>Student: 1 pizza, 1 snack + 1x0.5L @10$</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        <button>Order</button>
+                    </div>
+                </div>    
+            </div>    
+
+
+{% endblock %}
+
+{% block script %} 
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: false,
+                arrows : false
+            });
+        });
+    </script>
+{% endblock %}

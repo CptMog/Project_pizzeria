@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block header %}{% endblock %}
+{% block main %}
+    <h1>Order resume </h1>
+    <div class="cart_container">
+        <div>
+            <table>
+                <tr>
+                    <th>N°order</th>
+                    <th>details</th>
+                </tr>
+                <tr>
+                <td>n°{{id}}</td>
+                <td>
+                    <ul>
+                        <li>Your orders :</li>
+                        {% for product in products %}
+                            <li>{{product.name}} ---------------------- x {{product.quantity}}</li>
+                        {% else %}
+                            Error !
+                        {% endfor %}
+                        <li>___________________________________</li>
+                        {# {% for item in orders %} #}
+                            <li>total Ht :  {{orders.price}} $</li>
+                            <li>+ TVA  : {{orders.tva *100}}%</li>
+                            <li>+ Delivery : {{orders.delivery}} $</li>
+                            <li>+ Discount : - {{orders.discount}} $</li>
+                            <li>___________________________________</li>
+                            <li><strong>Total {{orders.total}} $</strong></li>
+                        {# {% else %}
+                            Error ! #}
+                        {# {% endfor %} #}
+                    </ul>
+                </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <button>Payment</button>
+            <button>Cancel</button>
+        </div>
+    </div>
+{% endblock %}

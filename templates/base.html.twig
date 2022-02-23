@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block link %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" href="/css/style.css">
+    {% endblock %}
+    <title>{% block title %}3WA Pizza{% endblock %}</title>
+</head>
+<body>
+{% block header %}
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{{ path('index') }}"><img src="/img/logo_pizza_v1.png" alt="logo"></a>
+                <ul>
+                    <li id="actu"><a href="">Home</a></li>
+                    <li><a href="{{ path('all_product') }}">Pizzas</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+            <div class="bl_cart">
+                <div class="cart">
+                    <a href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="prod_nb"></span>
+                </div>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <span>{{ app.user.lastname }}</span>
+                    <a href="" class="loginBtn"><button>Log out</button></a>
+                {% else %}
+                    <a href="" class="loginBtn"><button>Login</button></a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    {% endblock %}
+    <main> <div class="container">{% block main %}{% endblock %}</div></main>
+    <footer>
+        
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    {% block script %} {% endblock %}
+</body>
